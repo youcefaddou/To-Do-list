@@ -7,6 +7,7 @@ body {
     margin: 0;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
 #todolist-container {
     background-color: rgb(255, 239, 230);
     padding: 20px;
@@ -14,10 +15,12 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 40vw;
 }
+
 h1 {
-text-align: center;
-color: rgb(26, 25, 25);
+    text-align: center;
+    color: rgb(26, 25, 25);
 }
+
 #task-input {
     width: 95%;
     padding: 10px;
@@ -25,6 +28,7 @@ color: rgb(26, 25, 25);
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 #add-task-button {
     width: 98%;
     padding: 10px;
@@ -35,9 +39,11 @@ color: rgb(26, 25, 25);
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
 #add-task-button:hover {
     background-color: #56ca5c;
 }
+
 .task {
     display: flex;
     justify-content: space-between;
@@ -45,10 +51,19 @@ color: rgb(26, 25, 25);
     padding: 10px;
     border-bottom: 1px solid #ccc;
 }
+
 .task p {
     margin: 0;
+    flex: 1; /* Pour permettre au texte de prendre tout l'espace disponible */
 }
-.delete-button {
+
+.task-buttons {
+    display: flex;
+    gap: 5px; /* Espace entre les boutons */
+}
+
+.delete-button,
+.edit-button {
     background-color: #f1c5c0;
     border: none;
     border-radius: 5px;
@@ -56,35 +71,44 @@ color: rgb(26, 25, 25);
     padding: 5px 10px;
     transition: background-color 0.3s;
 }
+
 .delete-button:hover {
     background-color: rgb(241, 135, 86);
 }
+
 .edit-button {
     background-color: #c0f1f1;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 5px 10px;
-    transition: background-color 0.3s;
-    width: 95%;
 }
+
 .edit-button:hover {
     background-color: rgb(231, 230, 138);
 }
+
 @media (max-width: 768px) {
     #todolist-container {
         padding: 10px;
         width: 95%;
     }
-    #add-task-button, #task-input {
+
+    #add-task-button,
+    #task-input {
         font-size: 16px;
     }
+
     .task {
         flex-direction: column;
         align-self: flex-start;
     }
-    .delete-button {
+
+    .delete-button,
+    .edit-button {
         margin-top: 5px;
         width: 95%;
+    }
+
+    .task-buttons {
+        flex-direction: column;
+        align-self: flex-start;
+        gap: 5px;
     }
 }

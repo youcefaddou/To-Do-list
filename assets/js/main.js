@@ -9,10 +9,12 @@ function addTask() {
         taskDiv.classList.add('task')
         taskDiv.innerHTML = `
             <p class="task-content">${taskInput.value}</p>
-            <button class="edit-button">Modifier</button>
-            <button class="delete-button">Supprimer</button>
+            <div class="task-buttons">
+                <button class="edit-button">Modifier</button>
+                <button class="delete-button">Supprimer</button>
+            </div>
         `
-        taskList.appendChild(taskDiv)  // On ajoute la div créée plus tôt au parent taskList
+        taskList.appendChild(taskDiv) // On ajoute la div créée plus tôt au parent taskList
         taskInput.value = ''
         taskInput.focus() // .focus() permet de surligner la zone de texte
 
@@ -34,7 +36,7 @@ function attachDeleteEvent() {
     // Parcourt chaque bouton et lui attache un écouteur d'événement click qui supprimera le parent <div class="task"> du bouton lorsqu'il est cliqué
     deleteButtons.forEach(button => {
         button.addEventListener('click', () => {
-            button.parentElement.remove()
+            button.parentElement.parentElement.remove()
         })
     })
 }
